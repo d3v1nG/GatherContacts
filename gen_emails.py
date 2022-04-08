@@ -24,6 +24,8 @@ def gen_emails(domain, email_format, raw_contacts):
             finished_contacts.append(last_first(contact, domain))
         elif email_format == "first_dot_m_dot_last":
             finished_contacts.append(first_dot_m_dot_last(contact, domain))
+        elif email_format == "first":
+            finished_contacts.append(first(contact, domain))
     return finished_contacts
     
 # been getting lots of certs/dr prefixes in names, so lets sanitize 
@@ -39,6 +41,14 @@ def sanitize_contacts(contacts):
         clean_contacts.append(curr)
         # input("PAUSED")
     return clean_contacts
+
+def first(contact, domain):
+    email = ""
+    if (contact[2] == ""):
+        email = contact[0]+domain
+    else:
+        email = contact[0]+domain
+    return email.lower() 
 
 # {f}{last}@domain.com
 def f_last(contact, domain):
