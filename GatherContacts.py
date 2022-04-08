@@ -9,9 +9,10 @@ def main(company, pages, domain, format, outfile):
     # backup(raw_contacts)
     emails = gen_emails(domain, format, raw_contacts)
     export_csv(emails, outfile)
+    print("[~] Contacts gathered, exported to: {0}".format(outfile))
 
 def usage():
-    formats = ["flast", "lastf", "firstlast", "firstdotlast", "firstl", "lastfirst", "first_dot_m_dot_last"]
+    formats = ["flast", "lastf", "firstlast", "firstdotlast", "firstl", "lastfirst", "first_dot_m_dot_last", "first"]
     print("[~] Usage:\n \tpy .\GatherContacts.py ""company_name"" num_of_pages domain.com firstdotlast ""Company-Contact-List.csv""")
     print("[~] Supported Email Format Options:")
     for f in formats:
